@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8"/>
+  <!---	<link href="DogFeeder.css" rel="stylesheet" type="text/css"/>
+--->
+
+	<body>
+		<table class="centerTable" >
+		  <tr>
+		    <td>
+		      <div class="imgContainer">
+
+		        <div>
+		          <button type="imgButton" onclick="alert('Rhody Rhody Rhody')"><img id = "myImage1" src= "../HTML/Images/RDogBowl.png"></button>
+		        </div>
+		        <div class="imgButton">
+		          <button id="Bowl" >Toggle Color</button>
+		        </div>
+		      </div>
+		    </td>
+		</table>
+		<select name="D-W-M" size=1>
+			<option value = "0">Select Data Interval</option>
+			<option value = "1 min">1 Minute</option>
+			<option value = "10 min">10 Minutes</option>
+			<option value = "30 min">30 Minutes</option>
+			<option value = "1 hr">1 Hour</option>
+		</select>
+		<div id="chart" style="width: 100%;"></div>
+	</body>
+</html>
