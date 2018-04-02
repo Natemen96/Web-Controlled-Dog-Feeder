@@ -30,6 +30,7 @@ to be able to feed their pet from anywhere.
 •Create algorithm for accurate design
 
 **Futures Feature to come**
+
 •Learns your dogs habits
 
 •Automatic feeds dogs based on usual empty dog bowl time
