@@ -26,7 +26,8 @@ def pick_file(dir):
     return null
 def randomval():
     file = open('./outputFile.txt', 'r')
-    a = sum(map(int, file.read(2)))
+    a = sum(map(int, file.read(1)))
+    #file.close()
     if ((a) % 3 == 2):
         return 2
     elif ((a) % 3 == 1):
@@ -43,7 +44,8 @@ if __name__ == "__main__":
     #print randomval()
     dir = "~/Documents/Images/"
     r = pair (randomval(), dir)
-
+    file2 = open('../HTML/Images/Bowl.txt', 'w')
+    file2.write(r)
     #print dir
     #r = random_file(dir)
     print r

@@ -3,9 +3,30 @@
 
 <html>
 <meta charset="utf-8"/>
-  <!---	<link href="DogFeeder.css" rel="stylesheet" type="text/css"/>
---->
 
+<script type="text/javascript">
+
+window.onload = function(){
+
+	var txtFile = new XMLHttpRequest();
+	txtFile.open("GET", "../HTML/Images/Bowl.txt", true);
+	console.log(txtFile);
+	txtFile.onreadystatechange = function() {
+		allText = txtFile.responseText;
+	  lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+		if (lines === 'GDogbowl.png'){
+			document.getElementById('myImage').src='../HTML/Images/GDogbowl.png'
+			}
+		else if (lines === 'YDogbowl.png') {
+			document.getElementById('myImage').src='../HTML/Images/YDogbowl.png'
+			}
+		else {
+			document.getElementById('myImage').src='../HTML/Images/RDogbowl.png'
+			}
+	   }
+  }
+</script>
+  <!---	<link href="DogFeeder.css" rel="stylesheet" type="text/css"/>--->
 	<body>
 		<table class="centerTable" >
 		  <tr>
@@ -13,7 +34,11 @@
 		      <div class="imgContainer">
 
 		        <div>
-		          <button type="imgButton" onclick="alert('Rhody Rhody Rhody')"><img id = "myImage1" src= "../HTML/Images/RDogBowl.png"></button>
+							<img id="fullsize" />
+							<ul id="thumbs">
+							<img id="myImage" src= "../HTML/Images/RDogbowl.png" style="width:100px">
+							</ul>
+		          <!--<img id = "myImage1" src= "../HTML/Images/RDogbowl.png"> -->
 		        </div>
 		        <div class="imgButton">
 		          <button id="Bowl" >Toggle Color</button>
