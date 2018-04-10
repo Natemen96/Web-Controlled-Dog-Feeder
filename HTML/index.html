@@ -10,21 +10,23 @@ window.onload = function(){
 
 	var txtFile = new XMLHttpRequest();
 	txtFile.open("GET", "../HTML/Images/Bowl.txt", true);
-	console.log(txtFile);
+	//console.log(txtFile);
 	txtFile.onreadystatechange = function() {
-		allText = txtFile.responseText;
-	  lines = txtFile.responseText.split("\n"); // Will separate each line into an array
-		if (lines === 'GDogbowl.png'){
-			document.getElementById('myImage').src='../HTML/Images/GDogbowl.png'
-			}
-		else if (lines === 'YDogbowl.png') {
-			document.getElementById('myImage').src='../HTML/Images/YDogbowl.png'
-			}
-		else {
-			document.getElementById('myImage').src='../HTML/Images/RDogbowl.png'
-			}
-	   }
-  }
+		if (txtFile.readyState == 4 && txtFile.status == 200) {
+			allText = txtFile.responseText;
+	  	lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+			if (lines[0] === 'G'){
+				document.getElementById('myImage').src='../HTML/Images/GDogbowl.png'
+				}
+			else if (lines[0] === 'YDogbowl.png') {
+				document.getElementById('myImage').src='../HTML/Images/YDogbowl.png'
+				}
+			else {
+				document.getElementById('myImage').src='../HTML/Images/RDogbowl.png'
+				}
+	   	}
+  	}
+	}
 </script>
   <!---	<link href="DogFeeder.css" rel="stylesheet" type="text/css"/>--->
 	<body>
@@ -36,7 +38,7 @@ window.onload = function(){
 		        <div>
 							<img id="fullsize" />
 							<ul id="thumbs">
-							<img id="myImage" src= "../HTML/Images/RDogbowl.png" style="width:100px">
+							<img id="myImage" src= "Images/RDogbowl.png" style="width:100px">
 							</ul>
 		          <!--<img id = "myImage1" src= "../HTML/Images/RDogbowl.png"> -->
 		        </div>
