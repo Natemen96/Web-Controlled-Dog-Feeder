@@ -19,8 +19,9 @@ window.onload = function(){
 			console.log(txtFile.responseText);
 			allText = txtFile.responseText;
 	  	lines = txtFile.responseText.split("\n"); // Will separate each line into an array
+			document.getElementById('myImage').src="../HTML/Images/"+lines[0];
 			console.log(lines[0]);
-			if (lines[0] === 'GDogbowl.png'){
+	/*		if (lines[0] === 'GDogbowl.png'){
 				document.getElementById('myImage').src='../HTML/Images/GDogbowl.png'
 				}
 			else if (lines[0] === 'YDogbowl.png') {
@@ -29,6 +30,7 @@ window.onload = function(){
 			else {
 				document.getElementById('myImage').src='../HTML/Images/RDogbowl.png'
 				}
+				*/
 	   	}
   	}
 	 txtFile.open("GET", "Images/Bowl.txt", true);

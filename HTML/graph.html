@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <div id="chart">
+      <canvas id="canvas"></canvas>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flexio-sdk-js@1.21.3"></script>
+<script>
+(function(window, document, undefined) {
+
+  function render(){
+    var chart_data = {
+      labels: ['Year1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'],
+      datasets: [
+        {
+          label: 'A',
+          data: [2,4,8,14,22],
+          backgroundColor: 'rgba(255,0,0,0.5)'
+        },
+        {
+          label: 'B',
+          data: [3,5,9,17,33],
+          backgroundColor: 'rgba(0,0,255,0.5)'
+        }
+      ]
+    }
+
+    var ctx = document.getElementById('canvas').getContext('2d')
+    window.my_chart = new Chart(ctx, {
+      type: 'bar',
+      data: chart_data,
+      options: {
+        responsive: true,
+        legend: {
+          position: 'top'
+        },
+        title: {
+          display: true,
+          text: 'Basic Yearly Comparison'
+        }
+      }
+    })
+  }
+})(window, document)
+
+(function(window, document, Flexio, undefined) {
+  Flexio.setup('jxhfwptddrnnwsnbcpxq')
+  Flexio.pipe()
+    .request('https://raw.githubusercontent.com/flexiodata/data/master/phone-market-share/phone-market-share.csv')
+    .run(function(err, response) {
+      alert(response.text)
+    })
+
+})(window, document, Flexio)
+
+</script>
