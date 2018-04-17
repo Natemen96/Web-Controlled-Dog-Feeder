@@ -2,6 +2,7 @@
 import tempfile
 import os
 from random import choice
+import time
 
 ext2conttype = {
 "jpg": "image/jpeg",
@@ -43,10 +44,14 @@ if __name__ == "__main__":
     #dir = "../HTML/Images/"
     #print randomval()
     dir = "~/Documents/Images/"
-    r = pair (randomval(), dir)
-    file2 = open('../HTML/Images/Bowl.txt', 'w')
-    file2.write(r)
+    while True:
+        r = pair (randomval(), dir)
+        file2 = open('../HTML/Images/Bowl.txt', 'w')
+        #time.sleep(2)
+        file2.write(r)
+        #file2.close()
+
     #print dir
     #r = random_file(dir)
-    print r
+        print r
     #print "Content-type: %s\n" %(content_type(r))

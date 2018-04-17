@@ -4,14 +4,22 @@
 <html>
 
 <meta charset="utf-8"/>
-
+<meta http-equiv="expires" content="0">
+<meta http-equiv="refresh" content="20" >
+<!--
 <script type="text/javascript">
 
 window.onload = function(){
 
 	var txtFile = new XMLHttpRequest();
-
+	console.log('UNSENT', txtFile.readyState); // readyState will be 0
+	txtFile.open("GET", "Images/Bowl.txt", false);
+	console.log('OPENED', txtFile.readyState); // readyState will be 1
+	console.log('TEST', txtFile.status); // readyState will be 1
 	//console.log(txtFile);
+	txtfile.send(null);
+	alert(txtfile.responseText)
+	console.log('DONE', txtFile.readyState); // readyState will be 4
 	a = 5;
 	txtFile.onreadystatechange = function() {
 		if (txtFile.readyState == 4 && txtFile.status == 200) {
@@ -21,7 +29,7 @@ window.onload = function(){
 	  	lines = txtFile.responseText.split("\n"); // Will separate each line into an array
 			document.getElementById('myImage').src="../HTML/Images/"+lines[0];
 			console.log(lines[0]);
-	/*		if (lines[0] === 'GDogbowl.png'){
+			if (lines[0] === 'GDogbowl.png'){
 				document.getElementById('myImage').src='../HTML/Images/GDogbowl.png'
 				}
 			else if (lines[0] === 'YDogbowl.png') {
@@ -30,15 +38,20 @@ window.onload = function(){
 			else {
 				document.getElementById('myImage').src='../HTML/Images/RDogbowl.png'
 				}
-				*/
+
 	   	}
   	}
-	 txtFile.open("GET", "Images/Bowl.txt", true);
-	 txtfile.send();
+	 //txtfile.send();
+	 //console.log('DONE', txtFile.readyState); // readyState will be 4
 	}
-</script>
+</script> -->
+
   <!---	<link href="DogFeeder.css" rel="stylesheet" type="text/css"/>--->
+	<head>
+	
+	</head>
 	<body>
+
 		<table class="centerTable" >
 		  <tr>
 		    <td>
@@ -47,16 +60,18 @@ window.onload = function(){
 		        <div>
 							<img id="fullsize" />
 							<ul id="thumbs">
-							<img id="myImage" src= "Images/RDogbowl.png" style="width:100px">
+							<img id="myImage"  style="width:100px">
+
 							</ul>
 		          <!--<img id = "myImage1" src= "../HTML/Images/RDogbowl.png"> -->
 		        </div>
 		        <div class="imgButton">
-		          <button id="Bowl" >Toggle Color</button>
+		          <button id="Bowl"  >Toggle Color</button>
 		        </div>
 		      </div>
 		    </td>
 		</table>
+	<script type="text/javascript" src ="../Javascript/switchimage.js" >	</script>
 		<!-- <select name="D-W-M" size=1>
 			<option value = "0">Select Data Interval</option>
 			<option value = "1 min">1 Minute</option>
