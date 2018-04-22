@@ -21,7 +21,7 @@
 	</head>
 
 	<body>
-		<table class="centerTable" style="text-align: center;" >
+		<table class="centerTable" style="text-align: center;" action="../Python/writefalse.py" >
 		  <tr>
 		    <td>
 		      <div class="imgContainer">
@@ -86,32 +86,44 @@
 
       return dataPoints;
   }
-  $.get("test2.csv", function chartTab1(data) {
+  $.get("test.csv", function chartTab1(data) {
   var chart = new CanvasJS.Chart("chart1Container", {
       title:{
-        text: "Chart 1"
+        text: "Meals Today"
       },
       data: [
       {
         type: "line",
         dataPoints: getDataPointsFromCSV(data)
       }
-      ]
+		],
+		axisY:{
+  		title:"# of Bowl",
+  		},
+		axisX:{
+	  	title:"Hours",
+	  		},
     });
   chart.render();
   });
 
-  $.get("test.csv", function chartTab2(data) {
+  $.get("test2.csv", function chartTab2(data) {
     var chart1 = new CanvasJS.Chart("chart2Container", {
       title:{
-        text:"Chart 2"
+        text:"Meals This Week"
       },
       data: [
       {
         type: "line",
         dataPoints: getDataPointsFromCSV(data)
       }
-      ]
+		],
+		axisY:{
+  		title:"# of Bowl",
+  		},
+		axisX:{
+	  	title:"Days",
+	  		},
     });
     chart1.render();
   });

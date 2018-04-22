@@ -39,10 +39,16 @@ def randomval():
 def pair(val, dir):
     images = [f for f in os.listdir(os.path.expanduser(dir)) ]
     return images[val]
+def writefalse():
+    val = 0
+    with open('./feedme.txt', 'w+') as f2:
+    	f2.write('%d' % val )
+
 
 if __name__ == "__main__":
     #dir = "../HTML/Images/"
     #print randomval()
+    writefalse()
     dir = "~/Documents/Images/"
     while True:
         r = pair (randomval(), dir)
