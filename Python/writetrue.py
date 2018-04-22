@@ -19,7 +19,7 @@ with open('./feedme.txt', 'w+') as f:
 
 print '<html>'
 print '  <head>'
-print '    <meta http-equiv="refresh" content="0;url=http://localhost/~nathanmensah/Web-Controlled-Dog-Feeder/HTML/index2.html" />'
+print '    <meta http-equiv="refresh" content="0;url=http://localhost/~nathanmensah/Web-Controlled-Dog-Feeder/HTML/index.html" />'
 print '    <title>You are going to be redirected</title>'
 print '  </head>'
 print '  <body>'
