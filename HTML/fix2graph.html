@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8"/>
+
+<head>
+  <title>Please work</title>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="container">
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-jt">
+        <li class="active"><a data-toggle="tab" id="bs-tab1" href="#tab1">Chart 1    </a></li>
+        <li><a data-toggle="tab" id="bs-tab2" href="#tab2">   Chart 2     </a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="tab1" class="tab-pane active">
+          <div id="chart1Container" style="height: 300px; width: 500px;"></div>
+        </div>
+        <div id="tab2" class="tab-pane">
+          <div id="chart2Container" style=" height: 300px; width: 500px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+var chart = new CanvasJS.Chart("chart1Container", {
+    title:{
+      text:"Chart 1"
+    },
+    data: [
+    {
+      type: "column",
+      dataPoints: [
+      { x: 10, y: 71 },
+      { x: 20, y: 55},
+      { x: 30, y: 50 },
+      { x: 40, y: 65 },
+      { x: 50, y: 95 },
+      { x: 60, y: 68 },
+      { x: 70, y: 28 },
+      { x: 80, y: 34 },
+      { x: 90, y: 14}
+      ]
+    }
+    ]
+  });
+chart.render();
+
+function chartTab2() {
+  var chart1 = new CanvasJS.Chart("chart2Container", {
+    title:{
+      text:"Chart 2"
+    },
+    data: [
+    {
+      type: "column",
+      dataPoints: [
+      { x: 10, y: 58 },
+      { x: 20, y: 35},
+      { x: 30, y: 36 },
+      { x: 40, y: 75 },
+      { x: 50, y: 45 },
+      { x: 60, y: 28 },
+      { x: 70, y: 48 },
+      { x: 80, y: 14 },
+      { x: 90, y: 54}
+      ]
+    }
+    ]
+  });
+  chart1.render();
+}
+
+$('#bs-tab2').on("shown.bs.tab",function(){
+    chartTab2();
+    $('#bs-tab2').off(); // to remove the binded event after the initial rendering
+});
+
+
+</script>

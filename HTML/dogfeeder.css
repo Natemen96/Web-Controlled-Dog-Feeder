@@ -1,0 +1,33 @@
+
+/* Add a blue background color to the top navigation */
+.centerTable {
+	background-color: powderblue;
+	overflow: hidden;
+	width: 100%;
+  text-align: center;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+/* Style the links inside the navigation bar */
+.imgButton {
+	font: bold 17px arial, sans-serif;
+	float: left;
+	color: powderblue;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Add a color to the active/current link */
+.imgContainer {
+  text-align: center;
+	background-color: powderblue;
+}
+
+.fullsize{
+  text-align: center;
+	position: fixed;
+	right: 0;
+}
