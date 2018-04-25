@@ -4,8 +4,8 @@
  * 
  * PWMSEL0: HIGH  => Do Not Rotate Servo
  *          LOW   => Rotate Servo
- * PWMSEL1: HIGH  => Rotate Clockwise
- *          LOW   => Rotate Counter Clockwise        
+ * PWMSEL1: HIGH  => Rotate Counter Clockwise (Lower)
+ *          LOW   => Rotate Clockwise (Raise)
  *  ** PWMSEL* reads HIGH when open, LOW when closed
  */
 #include <Servo.h>
@@ -18,10 +18,10 @@ const int PWMOUT  = 9;
 Servo servo;
 
 void setup() {
-  Serial.begin(115200);             // Initialze Serial Output to Console
+  Serial.begin(115200);             // Initialize Serial Output to Console
 
-  pinMode(PWMSEL0, INPUT_PULLUP);   // INPUT requires external pulldown
-  pinMode(PWMSEL1, INPUT_PULLUP);
+  pinMode(PWMSEL0, INPUT);          // Set pins as inputs (control servo direction)
+  pinMode(PWMSEL1, INPUT);
 
   servo.attach(PWMOUT);             // PWM Output
 }
@@ -32,23 +32,39 @@ void loop() {
 
   Serial.print("PWM SEL: ");
   Serial.print(pwm_sel0);
-  Serial.print(pwm_sel1);
-  Serial.println(")");
+  Serial.println(pwm_sel1);
 
   /*
    * PWM SEL0 Determines whether or not Servo should move
    * PWM SEL1 Determines CW or CCW
    */
+  /*
   if(pwm_sel0 == HIGH) {
     // Servo Should be stationary
-    servo.write(90);    // May have to modify this
+    servo.write(90);
   } else if(pwm_sel1 == HIGH) {
     // Rotate Servo CW
-    servo.write(180);   // May have to modify this
+    servo.write(180);
   } else {
     // Rotate Servo CCW
-    servo.write(0);     // May have to modify this
+    servo.write(0);
+  }
+  */
+
+  /* 
+   *  Currently, only support for raising the Dog Feeder
+   *  on Web App. Therefore, we will use a simpler model
+   *  for now and only use one select input.
+   */
+  if(pwm_sel0 == HIGH)
+  {
+    // Rotate CW
+    servo.write(0);
+  }
+  else
+  {
+    servo.write(85);
   }
 
-  delay(1000);
+  delay(1000);                // Update Every Second
 }
