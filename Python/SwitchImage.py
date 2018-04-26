@@ -25,16 +25,18 @@ def random_file(dir):
     #print images
 def pick_file(dir):
     return null
+
+#Function for changing a dogbowl color 
 def randomval():
     file = open('./outputFile.txt', 'r')
-    a = sum(map(int, file.read(1)))
-    #file.close()
-    if ((a) % 3 == 2):
+    a = file.read(2)
+    a = int(a)
+    if (a >= 2048):
         return 2
-    elif ((a) % 3 == 1):
-        return 1
-    else:
+    elif (a <= 512):
         return 0
+    else:
+        return 1
 
 def pair(val, dir):
     images = [f for f in os.listdir(os.path.expanduser(dir)) ]
@@ -46,18 +48,12 @@ def writefalse():
 
 
 if __name__ == "__main__":
-    #dir = "../HTML/Images/"
-    #print randomval()
     writefalse()
-    dir = "~/Documents/Images/"
+    dir = "../HTML/Images/"
     while True:
         r = pair (randomval(), dir)
         file2 = open('../HTML/Images/Bowl.txt', 'w')
-        #time.sleep(2)
-        file2.write(r)
-        #file2.close()
 
-    #print dir
-    #r = random_file(dir)
+        file2.write(r)
+
         print r
-    #print "Content-type: %s\n" %(content_type(r))

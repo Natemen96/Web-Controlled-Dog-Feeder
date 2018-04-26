@@ -5,46 +5,46 @@
 
 <meta charset="utf-8"/>
 <meta http-equiv="expires" content="0">
-<!--<meta http-equiv="refresh" content="20" > -->
-
+<meta http-equiv="refresh" content="20" >
+	<!-- Head filled with liberay for CanvasJS and css style -->
 	<head>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
 		<style>
     body {background-color: powderblue;}
     h1   {color: blue;}
-    p    {color: red;}
     </style>
 	</head>
 
 	<body>
-		<table class="centerTable" style="text-align: center;" action="../Python/writefalse.py" >
+		<table class="centerTable" style="text-align: center;" >
 		  <tr>
 		    <td>
 		      <div class="imgContainer">
 
 		        <div>
 							<img id="fullsize" />
-              <!-- -->
+              <!-- Image is handle by switchimage.py that runs as deamon -->
 							<ul id="thumbs">
 							<img id="myImage"  style="width:100px">
 
 							</ul>
 
 		        </div>
-              <!-- -->
+              <!-- Write 1 to textfile for FPGA to send to the arudino to be send to Servo -->
             <div class="imgButton">
-		          <!-- <button id="Bowl" name ="Bowl"   >Feed me!</button> -->
+
 							<form enctype="multipart/form-data" action="../Python/writetrue.py" method="post">
 	 						<p><input type="submit" value="Feed ME!"></p>
 	 					</form>
 
 		        </div>
 
-            <!-- -->
+            <!--Container for Canvas JS  -->
             <div class="container">
               <div class="col-md-3">
                 <ul class="nav nav-pills nav-jt">
@@ -66,11 +66,12 @@
 		    </td>
 		</table>
 	<script type="text/javascript" src ="../Javascript/switchimage.js" >	</script>
-
+	<!-- Switch Image Handler-->
 
 	</body>
   <script type="text/javascript">
   var dataPoints = [];
+	//Take CSV values and return dataPoints
   function getDataPointsFromCSV(csv) {
       var dataPoints = csvLines = points = [];
       csvLines = csv.split(/[\r?\n|\r|\n]+/);
@@ -104,6 +105,7 @@
 	  	title:"Hours",
 	  		},
     });
+		//create graph
   chart.render();
   });
 
@@ -127,13 +129,13 @@
     });
     chart1.render();
   });
-
+	//Tab handler
   $('#bs-tab2').on("shown.bs.tab",function(){
       chartTab2();
       $('#bs-tab2').off(); // to remove the binded event after the initial rendering
       renderChartEvents();
   });
-
+	//Create charts
   function renderChartEvents() {
     $('#bs-tab1').on("shown.bs.tab", function() {
       chart.render();

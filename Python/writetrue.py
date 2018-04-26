@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+# Write 1 to text file and redirect back to homepage
 import cgi, cgitb
 cgitb.enable()
 
