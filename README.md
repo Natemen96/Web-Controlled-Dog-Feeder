@@ -1,6 +1,12 @@
 # Web Controlled Dog Feeder
 ![WCDF Logo](HTML/Images/logo.jpg)
 
+
+<i> <b> Check out a demo here! </b> </i> 
+[![Demo can be found here](http://img.youtube.com/vi/vKgc1LoBTIQ/0.jpg)](https://youtu.be/vKgc1LoBTIQ "Web Controlled Dog Feeder 408/9 Project")
+
+
+
 Busy adult and college students with pet may not have time to feed their pets
 and have to rely on paid services or others means to feed their companions
 
